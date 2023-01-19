@@ -1,0 +1,185 @@
+<div style="width: 100%;">
+    <app-header></app-header>
+    <div class="mi_row" style="width: 100%; height: 100%; ">
+        <app-sidebar></app-sidebar>
+        <div style="padding: 32px; width: 100%;">
+            <div style="width: 100%; display: flex; justify-content: space-between; margin-bottom: 16px; gap: 16px;">
+                <button mat-flat-button (click)="onFilter()">
+                    <div style="display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                        <div class="icon_filter"></div>
+                        <span style="margin-left: 8px;">Filter</span>
+                    </div>
+
+                </button>
+
+                <div style="width: 100%; display: flex; justify-content: flex-end; gap: 16px;">
+                    <button mat-flat-button (click)="onCancel()" *ngIf="editionMode">
+                        <div style="display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                            <div class="icon_close"></div>
+                            <span style="margin-left: 8px;">Cancel</span>
+                        </div>
+
+                    </button>
+
+
+                    <button mat-flat-button color="primary" (click)="onSave()" *ngIf="editionMode">
+                        <div style="display: flex; flex-direction: row; gap: 8px; align-items: center;">
+                            <div class="icon_check"></div>
+                            <span style="margin-left: 8px;">Save</span>
+                        </div>
+
+                    </button>
+                </div>
+
+
+            </div>
+            <div style="width: 100%; display: flex; flex-direction: row;gap: 16px; ">
+                <div *ngIf="filterModo"
+                    style=" padding-top: 16px;  background-color: white; border-radius: 00.5rem; box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);">
+                    <!-- <div style="width: 150px; background-color: thistle;">HOLAAAAA</div> -->
+                    <app-filter nombreFiltro="ID"></app-filter>
+                    <app-filter nombreFiltro="Date"></app-filter>
+                    <app-filter nombreFiltro="Name"></app-filter>
+                    <app-filter nombreFiltro="Total"></app-filter>
+                    <app-filter nombreFiltro="Dinero"></app-filter>
+                    <div class="form-group" style="display:flex; justify-content: end; margin: 1rem;">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                </div>
+                <div [ngClass]="filterModo ? 'table-compact' : 'normal-table'">
+                    <ngx-datatable #mydatatable class="material striped" [headerHeight]="50" [limit]="3"
+                        [columnMode]="ColumnMode.force" [footerHeight]="50" [rowHeight]="50" [rows]="rows">
+
+                        <ngx-datatable-column name="VALIDATED">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row" [columnMode]="flex" style="justify-content: center ;">
+                            <span title="Validated" *ngIf="validated; else notValid"><mat-icon svgIcon="blackCheck" class="check"></mat-icon></span>
+                            <ng-template title="Not validated" #notValid> <mat-icon svgIcon="x"></mat-icon></ng-template>
+                            </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="ID">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-id'] = true"
+                                    *ngIf="!editing[rowIndex + '-id']">
+                                    {{ value }}
+                                </span>
+                                <input autofocus (blur)="updateValue($event, 'id', rowIndex)"
+                                    *ngIf="editing[rowIndex + '-id']" type="number" [value]="value" />
+                            </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="CIF">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-cif'] = true"
+                                    *ngIf="!editing[rowIndex + '-cif']">
+                                    {{ value }}
+                                </span>
+                                <input autofocus (blur)="updateValue($event, 'cif', rowIndex)"
+                                    *ngIf="editing[rowIndex + '-cif']" type="text" [value]="value" />
+                            </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Date">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-date'] = true"
+                                    *ngIf="!editing[rowIndex + '-date']">
+                                    {{ value }}
+                                </span>
+                                <input autofocus (blur)="updateValue($event, 'date', rowIndex)"
+                                    *ngIf="editing[rowIndex + '-date']" type="date" [value]="value" />
+                            </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="Name">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-name'] = true"
+                                    *ngIf="!editing[rowIndex + '-name']">
+                                    {{ value }}
+                                </span>
+                                <input autofocus (blur)="updateValue($event, 'name', rowIndex)"
+                                    *ngIf="editing[rowIndex + '-name']" type="text" [value]="value" />
+                            </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="NIF">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-nif'] = true"
+                                    *ngIf="!editing[rowIndex + '-nif']">
+                                    {{ value }}
+                                </span>
+                                <input autofocus (blur)="updateValue($event, 'nif', rowIndex)"
+                                    *ngIf="editing[rowIndex + '-nif']" type="text" [value]="value" />
+                            </ng-template>
+                        </ngx-datatable-column>
+
+
+                        <ngx-datatable-column name="Subtotal">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-subtotal'] = true"
+                                    *ngIf="!editing[rowIndex + '-subtotal']">
+                                    {{ value }}€
+                                </span>
+                                <input autofocus (blur)="updateValue($event, 'subtotal', rowIndex)"
+                                    *ngIf="editing[rowIndex + '-subtotal']" type="number" [value]="value" />
+                            </ng-template>
+                        </ngx-datatable-column>
+
+
+                        <ngx-datatable-column name="Total">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-total'] = true"
+                                    *ngIf="!editing[rowIndex + '-total']">
+                                    {{ value }}€
+                                </span>
+                                <input autofocus (blur)="updateValue($event, 'total', rowIndex)"
+                                    *ngIf="editing[rowIndex + '-total']" type="number" [value]="value" />
+                            </ng-template>
+                        </ngx-datatable-column>
+
+
+                        <ngx-datatable-column name="VAT">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <span title="Double click to edit" (dblclick)="editing[rowIndex + '-vat'] = true"
+                                    *ngIf="!editing[rowIndex + '-vat']">
+                                    {{ value }}%
+                                </span>
+                                <input autofocus (blur)="updateValue($event, 'vat', rowIndex)"
+                                    *ngIf="editing[rowIndex + '-vat']" type="number" [value]="value" />
+                            </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="PDF">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"  let-row="row" [columnMode]="flex">
+                                <button mat-icon-button (click)="downloadPdf('date', rowIndex)">
+                                    <mat-icon svgIcon="pdf"></mat-icon>
+                                </button>
+                            </ng-template>
+                        </ngx-datatable-column>
+
+                        <ngx-datatable-column name="">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex"  let-row="row">
+                                <button mat-icon-button (click)="onDetail()">
+                                    <mat-icon svgIcon="eye"></mat-icon>
+                                </button>
+                                <button mat-icon-button (click)="onDelete()">
+                                    <mat-icon svgIcon="trash" class="trash"></mat-icon>
+                                </button>
+                            </ng-template>
+                        </ngx-datatable-column>
+                        
+                    </ngx-datatable>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

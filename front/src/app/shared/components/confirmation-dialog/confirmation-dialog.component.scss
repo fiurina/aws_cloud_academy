@@ -1,0 +1,22 @@
+.content-wrapper{
+    .side{
+      min-width: 55px;
+      background-color: var(--primary-color);
+      // height: 100%;
+    }
+  
+    .content{
+      margin: 15px 15px 10px 15px;
+      width: 100%;
+  
+      .content-ins{
+          text-align: center;
+      }
+  
+      .buttons{
+        padding: 15px 5px 5px 5px;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }

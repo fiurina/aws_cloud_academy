@@ -1,0 +1,29 @@
+
+<div class="login-wrapper">
+
+  <mat-card class="card">
+    <div class="full-width">
+      <mat-card-title class="card-header">
+        <mat-card-title class="text-28">Cloud</mat-card-title>
+      </mat-card-title>
+      <mat-card-content class="card-body">
+        <form>
+          <div class="input-wrapper">
+            <mat-label class="label">User</mat-label>
+            <input type="text" class="form-control text-14" placeholder="Username"
+            [ngModelOptions]="{standalone: true}" [(ngModel)]="user">
+          </div>
+          <div class="input-wrapper">
+            <mat-label>Password</mat-label>
+            <input type="password" class="form-control text-14" placeholder="**************"
+            [ngModelOptions]="{standalone: true}" [(ngModel)]="password">
+          </div>
+          <div class="buttons">
+            <button [disabled]="!user || !password" mat-flat-button color="primary" (click)="login()" class="uppercase text-12">Login</button>
+            <p class="forgot">Forgot your password? Click here!</p>
+          </div>
+        </form>
+      </mat-card-content>
+    </div>
+    </mat-card>
+</div>

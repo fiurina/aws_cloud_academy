@@ -1,0 +1,11 @@
+diff a/Rekognition/front/src/theme/customGlobal.scss b/Rekognition/front/src/theme/customGlobal.scss	(rejected hunks)
+@@ -130,4 +130,7 @@
+   min-height: 40px  !important;  
+   justify-content: space-between;
+   align-items: center;
+-}
+\ No newline at end of file
++}
++
++
++

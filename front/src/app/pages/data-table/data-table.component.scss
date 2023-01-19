@@ -1,0 +1,87 @@
+
+
+.icon_check{
+    content: url(../../../assets/iconos/icon_check.svg);
+}
+
+.icon_close{
+  content: url(../../../assets/iconos/icon_close.svg);
+}
+
+.icon_filter{
+  content: url(../../../assets/iconos/icon_filter.svg);
+}
+
+.icon_pdf{
+  content: url(../../../assets/iconos/icon_pdf.svg);
+  transform: scale(1.2);
+}
+
+.icon_eye{
+  content: url(../../../assets/iconos/icon_eye.svg);
+  transform: scale(1.2);
+}
+
+// .icon_trash{
+//   content: url(../../../assets/iconos/icon_trash.svg);
+//   transform: scale(1.2);
+// }
+
+.trash:hover{
+  fill: red;
+}
+
+.check{
+  fill: black;
+}
+
+
+
+// .icon_edit:hover{
+//     content: url(../../../assets/iconos/icon_edit_hover.svg);
+// }
+
+.btn2{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: black;
+    border-radius: 0.5rem;
+    background-color: white;
+    padding: 8px 16px !important;
+    border: 1px solid rgba(0, 0, 0, 0.44);
+  }
+  .btn2:hover{
+      border: 1px solid #E20074;
+  }
+  
+  
+  
+  .btn{
+    display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      color: white;
+      border-radius: 0.5rem;
+      background-color: #E20074;
+      padding: 8px 16px !important;
+      // border: 1px solid rgba(0, 0, 0, 0.44);
+    }
+    .btn:hover{
+      background-color: #C00063;
+    }
+
+.table-compact{
+  width: calc(100% - 330px);
+}
+
+.normal-table{
+  width: 100%;
+}
+
+.icon-btn{
+  display: flex;
+  align-items: center;
+}

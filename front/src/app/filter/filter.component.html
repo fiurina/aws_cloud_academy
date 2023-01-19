@@ -1,0 +1,26 @@
+<p-panel class="panelFiltros" [collapsed]="true" [toggleable]="true" toggler="header" collapseIcon="pi pi-angle-up"
+    expandIcon="pi pi-angle-down">
+    <ng-template pTemplate="header">
+        <div class="text">
+            {{nombreFiltro}}
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="content" class="filtroContenido" style="border: none;">
+
+        <div style="margin:16px;" *ngIf="nombreFiltro!='Dinero'">
+            <input autofocus type="text" />
+        </div>
+        <div *ngIf="nombreFiltro=='Dinero'" style="display:flex; justify-content:center;">
+            <mat-slider
+            thumbLabel
+            [displayWith]="formatLabel"
+            tickInterval="1000"
+            step="10"
+            min="0"
+            max="1000"
+            aria-label="units"></mat-slider>
+        </div>
+        
+    </ng-template>
+</p-panel>

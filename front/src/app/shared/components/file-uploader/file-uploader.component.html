@@ -1,0 +1,17 @@
+<div class="content-wrapper flex">
+  <div class="side"></div>
+  <div class="content">
+
+    <div class="upload-wrapper">
+      <mat-icon class="upload-icon">cloud_upload</mat-icon>
+      <input type="file" (change)="handleFile($event.target)" [accept]="accept"/>
+      <p *ngIf="fileToUpload">{{fileToUpload?.name}}</p>
+      <p *ngIf="!fileToUpload">Selecciona el archivo...</p>
+    </div>
+
+    <div class="buttons">
+      <button mat-button [mat-dialog-close]="false">Cancelar</button>
+      <button mat-button color="primary" (click)="uploadFile()" cdkFocusInitial>Aceptar</button>
+    </div>
+  </div>
+</div>

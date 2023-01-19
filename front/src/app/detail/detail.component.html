@@ -1,0 +1,85 @@
+<div style="width: 100%;">
+    <app-header></app-header>
+    <div class="mi_row" style="width: 100%; height: 100%; ">
+        <app-sidebar></app-sidebar>
+        <div style="padding: 32px; width: 100%;">
+            <div style="width: 100%; display: flex; flex-direction: row;gap: 16px; ">
+                <div style="width:100%; padding-top: 16px;  background-color: white; border-radius: 00.5rem; box-shadow: 0 5px 5px -3px rgb(0 0 0 / 20%), 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%);">
+                    <div [hidden]="submitted">
+                        <h1 style="margin-left: 1rem;">PDF Form</h1>
+                        <form (ngSubmit)="onSubmit()" #PDForm="ngForm">
+
+                            <div class="form-wrapper">
+                              
+                              <mat-form-field appearance="outline">
+                                <mat-label>ID</mat-label>
+                                <input matInput type="text" class="form-control" id="id"
+                                       readonly
+                                       [(ngModel)]="model.id" name="id"
+                                       value="module.id">
+                              </mat-form-field>         
+
+                              <mat-form-field appearance="outline">
+                                <mat-label>CIF</mat-label>
+                                <input matInput type="text" class="form-control" id="cif" readonly
+                                       [(ngModel)]="model.cif" name="cif" value="module.cif">
+                              </mat-form-field>
+
+                              <mat-form-field appearance="outline">
+                                <mat-label>Date</mat-label>
+                                <input matInput [matDatepicker]="picker" id="date" name="date" [(ngModel)]="model.date" value="module.date" readonly>
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                              </mat-form-field>
+                              
+                              </div>
+
+                              <div class="form-wrapper">
+                               
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Name</mat-label>
+                                  <input matInput type="text" class="form-control" id="name"
+                                       [(ngModel)]="model.name" name="name" value="module.name" readonly>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Nif</mat-label>
+                                  <input matInput type="text" class="form-control" id="nif"
+                                       [(ngModel)]="model.nif" name="nif" value="module.nif" readonly>
+                                </mat-form-field>
+
+                                <mat-form-field class="form-field" appearance="outline">
+                                  <mat-label>Subtotal</mat-label>
+                                  <input matInput type="number" class="form-control" id="subtotal"
+                                       [(ngModel)]="model.subtotal" name="subtotal" value="module.subtotal" readonly>
+                                </mat-form-field>
+                                
+                              </div>
+
+                              <div class="form-wrapper">
+
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Total</mat-label>
+                                  <input matInput type="number" class="form-control" id="total"
+                                       [(ngModel)]="model.total" name="total" value="module.total" readonly>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Vat</mat-label>
+                                  <select matNativeControl matInput class="form-control" id="vat" readonly>
+                                    <option *ngFor="let vat of vats" [value]="vat" [selected]="model.vat">{{vat}}</option>
+                                  </select>
+                                </mat-form-field>
+                                
+                              </div>
+
+                              <div class="form-group" style="text-align: end; margin: 1rem;">
+                                <button type="submit" class="btn btn-success">Submit</button>
+                              </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

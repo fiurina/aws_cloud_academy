@@ -1,0 +1,72 @@
+[
+    {
+        "id": 0,
+        "cif": "12345678A",
+        "date": "01/01/01",
+        "name": "Name",
+        "nif": "12345678A",
+        "subtotal": 123,
+        "total": 132,
+        "vat": 21
+    },
+    {
+        "id": 0,
+        "cif": "12345678A",
+        "date": "01/01/01",
+        "name": "Name",
+        "nif": "12345678A",
+        "subtotal": 123,
+        "total": 132,
+        "vat": 21
+    },
+    {
+        "id": 0,
+        "cif": "12345678A",
+        "date": "01/01/01",
+        "name": "Name",
+        "nif": "12345678A",
+        "subtotal": 123,
+        "total": 132,
+        "vat": 21
+    },
+    {
+        "id": 0,
+        "cif": "12345678A",
+        "date": "01/01/01",
+        "name": "Name",
+        "nif": "12345678A",
+        "subtotal": 123,
+        "total": 132,
+        "vat": 21
+    },
+    {
+        "id": 0,
+        "cif": "12345678A",
+        "date": "01/01/01",
+        "name": "Name",
+        "nif": "12345678A",
+        "subtotal": 123,
+        "total": 132,
+        "vat": 21
+    },
+    {
+        "id": 0,
+        "cif": "12345678A",
+        "date": "01/01/01",
+        "name": "Name",
+        "nif": "12345678A",
+        "subtotal": 123,
+        "total": 132,
+        "vat": 21
+    },
+    {
+        "id": 0,
+        "cif": "12345678A",
+        "date": "01/01/01",
+        "name": "Name",
+        "nif": "12345678A",
+        "subtotal": 123,
+        "total": 132,
+        "vat": 21
+    }
+]
